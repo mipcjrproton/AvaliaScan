@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+.print-batch-all,
+.omr-print-only,
+#omr-print-portal {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 6mm !important;
+  }
+
+  *, *::before, *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 100% !important;
+    overflow: visible !important;
+  }
+
+  /* Completely hide app navigation, sidebar, headers, modals and root layout */
+  #root,
+  .no-print,
+  .print-modal-overlay,
+  .print-modal-card,
+  main,
+  nav,
+  aside,
+  header,
+  footer {
+    display: none !important;
+  }
+
+  /* Display ONLY the dedicated print portal directly under body */
+  #omr-print-portal,
+  .omr-print-only {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    overflow: visible !important;
+  }
+
+  /* Exact A4 Portrait Page for each student: fits exactly 1 page */
+  .a4-print-sheet {
+    width: 198mm !important;
+    height: 280mm !important;
+    max-height: 280mm !important;
+    box-sizing: border-box !important;
+    margin: 0 auto !important;
+    padding: 2mm !important;
+    page-break-before: auto !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    background: #ffffff !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    overflow: hidden !important;
+  }
+
+  .a4-print-sheet:last-child {
+    page-break-after: auto !important;
+    break-after: auto !important;
+    margin-bottom: 0 !important;
+  }
+}

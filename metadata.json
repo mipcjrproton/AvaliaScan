@@ -1,0 +1,10 @@
+{
+  "name": "AvaliaScan - Sistema de Avaliações e Correções",
+  "description": "Plataforma profissional de criação de avaliações, turmas e correção automática por escaneamento de gabaritos via celular com acesso Google, biometria digital e e-mail.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
